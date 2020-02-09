@@ -1,0 +1,24 @@
+{
+    "storageIcons": [
+	   {
+            "name": "bladeParts",
+            "iconPath": "@partweapons:icons_blade.png"
+        },
+       	{
+            "name": "guardParts",
+            "iconPath": "@partweapons:icons_hilt.png"
+        },
+       	{
+            "name": "handleParts",
+            "iconPath": "@partweapons:icons_handle.png"
+        },
+        {
+            "name": "miscParts",
+            "iconPath": "@partweapons:miscIcon.png"
+        },
+        {
+            "name": "pommelParts",
+            "iconPath": "@partweapons:icons_pommel.png"
+        }
+    ]
+}
