@@ -21,7 +21,7 @@ namespace partAssembler
 
 
 
-            Debug.Log("INITIALIZE CALLED");
+            //Debug.Log("INITIALIZE CALLED");
             List<Renderer> bladeRenderesTotal = new List<Renderer>();
 
             foreach (CustomReference customReference1 in finalItem.definition.customReferences.ToList())
@@ -34,26 +34,26 @@ namespace partAssembler
                     }
                 }
 
-                Debug.Log("custom reference");
+                //Debug.Log("custom reference");
                 if (customReference1.name == "Effect")
                 {
-                    Debug.Log("IS EFFECT");
+                    //Debug.Log("IS EFFECT");
                     shader = customReference1.transform.GetComponent<Renderer>().sharedMaterial.shader;
                     
                 }
             }
 
-            Debug.Log("DONE REF");
+            //Debug.Log("DONE REF");
 
             if (shader != null)
             {
-                Debug.Log("SHADE != NULL");
+                //Debug.Log("SHADE != NULL");
                 if (bladeRenderesTotal.Count > 0)
                 {
-                    Debug.Log(">0");
+                    //Debug.Log(">0");
                     foreach (Renderer renderer in bladeRenderesTotal)
                     {
-                        Debug.Log("RENDERER");
+                        //Debug.Log("RENDERER");
                         renderer.sharedMaterial.shader = shader;
 
                         // Particle system
@@ -77,15 +77,15 @@ namespace partAssembler
 
         private void FinalItem_OnCollisionEvent(ref CollisionStruct collisionInstance)
         {
-            Debug.Log("oncol");
+            //Debug.Log("oncol");
             if (collisionInstance.damageStruct.damage > 0)
             {
-                Debug.Log("dmg >0");
+                //Debug.Log("dmg >0");
                 if (collisionInstance.damageStruct.hitRagdollPart)
                 {
-                    Debug.Log("ragdoll");
+                    //Debug.Log("ragdoll");
                     Creature creature = collisionInstance.targetCollider.GetComponentInParent<Creature>();
-                    Debug.Log("creat");
+                    //Debug.Log("creat");
 
                     if (!collisionInstance.damageStruct.hitRagdollPart.GetComponentInChildren<MeshRenderer>())
                     {
@@ -99,7 +99,7 @@ namespace partAssembler
                         return;
                     }
 
-                    Debug.Log("no paticles");
+                    //Debug.Log("no paticles");
 
                     ParticleSystem ps = Instantiate(particleSystem, renderer.transform);
 
@@ -131,25 +131,6 @@ namespace partAssembler
 
                     StartCoroutine(Burn(creature, ps, renderer.material));
 
-                    /*
-                    foreach (RagdollPart ragdollPart in creature.ragdoll.parts)
-                    {
-                        foreach (MeshRenderer renderer in ragdollPart.GetComponentsInChildren<MeshRenderer>())
-                        {
-                            Debug.Log("rend");
-                            Mesh mesh = renderer.GetComponent<MeshFilter>().mesh;
-                            Debug.Log("mesh");
-
-                            
-
-
-
-                            
-
-                        }
-                    }
-                    */
-
 
                 }
             }
@@ -158,14 +139,14 @@ namespace partAssembler
 
         IEnumerator Burn(Creature creature, ParticleSystem particleSystem, Material material)
         {
-            Debug.Log("BURN");
+            //Debug.Log("BURN");
 
 
            
 
             while (particleSystem.isPlaying)
             {
-                Debug.Log("alive?");
+                //Debug.Log("alive?");
                 CollisionStruct collisionStruct = new CollisionStruct(new DamageStruct(Damager.DamageType.Poison, 5), null, null, null, null, null, null, null);
                 creature.health.Damage(ref collisionStruct);
 
@@ -173,7 +154,7 @@ namespace partAssembler
 
             }
 
-            Debug.Log("done");
+            //Debug.Log("done");
 
             Destroy(particleSystem.gameObject);
 

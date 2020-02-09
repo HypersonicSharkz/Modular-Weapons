@@ -25,12 +25,9 @@ namespace partAssembler
 
             base.OnItemLoaded(item);
 
-
-            item.gameObject.AddComponent<ItemPartInfo>();
-
             foreach (attachmentPointsData point in attachmentPoints)
             {
-                Debug.Log("Item Loaded" + point.referenceName);
+                //Debug.Log("Item Loaded" + point.referenceName);
                 AttachmentPointLogic script = item.definition.GetCustomReference(point.referenceName).gameObject.AddComponent<AttachmentPointLogic>();
                 script.item = item;
                 script.partType = point.partType;

@@ -12,7 +12,7 @@ namespace partAssembler
     {
         public override void OnItemLoaded(Item item)
         {
-            Debug.Log("EVIL POMMEL LOAD");
+            //Debug.Log("EVIL POMMEL LOAD");
             base.OnItemLoaded(item);
 
             EvilPommel evilPommel = item.gameObject.AddComponent<EvilPommel>();

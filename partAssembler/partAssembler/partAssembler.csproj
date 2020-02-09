@@ -74,9 +74,7 @@
     <Compile Include="ItemModuleEvilPommel.cs" />
     <Compile Include="ItemModuleFirePommel.cs" />
     <Compile Include="ItemModulePart.cs" />
-    <Compile Include="ItemParsing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WeaponParent.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

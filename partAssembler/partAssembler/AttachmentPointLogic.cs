@@ -39,10 +39,10 @@ namespace partAssembler
         {
             isAttached = false;
             item.OnUngrabEvent += logic_OnUngrabEvent;
-            Debug.Log("Initialized");
+            //Debug.Log("Initialized");
 
 
-            Debug.Log("Damager count" + item.data.damagers.Count);
+            //Debug.Log("Damager count" + item.data.damagers.Count);
 
         }
 
@@ -157,11 +157,11 @@ namespace partAssembler
                 if (point1.partType == "blade")
                 {
                     bladeRenderes.Add(renderer);
-                    Debug.Log("ADDED BLADE " + "Total " + bladeRenderes.Count);
+                    //Debug.Log("ADDED BLADE " + "Total " + bladeRenderes.Count);
                 }
             }
 
-            Debug.Log("Total blades " + bladeRenderes.Count);
+            //Debug.Log("Total blades " + bladeRenderes.Count);
 
             // -------------------------------------------------------------------- //
             //                                  Damagers                            //
@@ -172,23 +172,23 @@ namespace partAssembler
                 if (ungrabbedItem.data.damagers.Contains(damager1))
                 {
                     point2ItemData.damagers.Remove(damager1);
-                    Debug.Log("Removed damager");
+                    //Debug.Log("Removed damager");
                 }
             }
 
-            Debug.Log(point2ItemData.damagers.Count);
+            //Debug.Log(point2ItemData.damagers.Count);
 
             point2ItemData.damagers.AddRange(ungrabbedItem.data.damagers);
 
-            Debug.Log(point2ItemData.damagers.Count);
+            //Debug.Log(point2ItemData.damagers.Count);
 
             foreach (DamagerDefinition damagerDefinition in ungrabbedItem.GetComponentsInChildren<DamagerDefinition>())
             {
                 damagerDefinition.colliderGroup.transform.parent = point2ItemTransform;
                 
-                Debug.Log("ColliderGroup Name " + damagerDefinition.colliderGroup.name);
+                //Debug.Log("ColliderGroup Name " + damagerDefinition.colliderGroup.name);
                 damagerDefinition.transform.parent = point2ItemTransform;
-                Debug.Log("damagerDefinition " + damagerDefinition.name);
+                //Debug.Log("damagerDefinition " + damagerDefinition.name);
                 
             }
 
@@ -225,7 +225,7 @@ namespace partAssembler
             //                                  CustomReference                     //
             // -------------------------------------------------------------------- //
 
-            Debug.Log("Custom ref start");
+            //Debug.Log("Custom ref start");
 
             foreach (CustomReference customReference in ungrabbedItemDefinition.customReferences)
             {
@@ -316,7 +316,7 @@ namespace partAssembler
 
             foreach (ItemModule itemModule in ungrabbedItem.data.modules)
             {
-                Debug.Log(itemModule.type.Name);
+                //Debug.Log(itemModule.type.Name);
                 if (itemModule.type.Name != "ItemModuleAI" && itemModule.type.Name != "ItemModulePart")
                 {
 
@@ -325,7 +325,7 @@ namespace partAssembler
                 }
             }
 
-            Debug.Log("Total modules added " + addedModules.Count);
+            //Debug.Log("Total modules added " + addedModules.Count);
 
             // Get all modules on the new item and find all added modules
             List<ItemModule> totalAddedModules = new List<ItemModule>();
@@ -344,7 +344,7 @@ namespace partAssembler
                 }
             }
 
-            Debug.Log("Total added modules to item " + totalAddedModules.Count);
+            //Debug.Log("Total added modules to item " + totalAddedModules.Count);
 
 
             foreach (ItemModule itemModule1 in totalAddedModules)

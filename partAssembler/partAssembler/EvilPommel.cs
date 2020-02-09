@@ -16,7 +16,7 @@ namespace partAssembler
 
         public void Initialize(Item finalItem)
         {
-            Debug.Log("INITIALIZE CALLED");
+            //Debug.Log("INITIALIZE CALLED");
             List<Renderer> bladeRenderesTotal = new List<Renderer>();
 
             foreach (CustomReference customReference1 in finalItem.definition.customReferences.ToList())
@@ -30,11 +30,11 @@ namespace partAssembler
                 }
             }
 
-            Debug.Log("DONE REF");
+            //Debug.Log("DONE REF");
 
             if (bladeRenderesTotal.Count > 0)
             {
-                Debug.Log(">0");
+                //Debug.Log(">0");
                 foreach (Renderer renderer in bladeRenderesTotal)
                 {
 

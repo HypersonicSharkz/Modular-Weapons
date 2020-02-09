@@ -12,7 +12,7 @@ namespace partAssembler
     {
         public override void OnItemLoaded(Item item)
         {
-            Debug.Log("FIRE POMMEL LOAD");
+            //Debug.Log("FIRE POMMEL LOAD");
             base.OnItemLoaded(item);
 
 
